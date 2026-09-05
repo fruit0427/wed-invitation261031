@@ -71,18 +71,14 @@ input,textarea{-webkit-appearance:none;border-radius:0}
         <sc-for list="{{ albumTop }}" as="a" hint-placeholder-count="3">
           <div onClick="{{ a.onOpen }}" style="cursor:pointer">
             <div style="text-align:center;font-family:'Courier Prime',monospace;font-size:9.5px;letter-spacing:.14em;color:#A9A6A0;padding-bottom:11px">{{ a.label }}</div>
-            <div style="aspect-ratio:3/4;background-color:#EFECE6;background-image:repeating-linear-gradient(44deg,#E9E7E2 0 7px,#F3F1EC 7px 14px);background-size:cover;background-position:center">
-              <img src="{{ a.src }}" alt="" style="display:block;width:100%;height:100%;object-fit:cover">
-            </div>
+            <div style="aspect-ratio:3/4;background-color:#EFECE6;background-image: {{ a.bgUrl }};background-size:cover;background-position:center"></div>
           </div>
         </sc-for>
       </div>
-      <div style="text-align:center;font-family:'Courier Prime',monospace;font-size:9.5px;letter-spacing:.14em;color:#A9A6A0;padding:26px 34px 0">( ALBUM · 21 CUTS )</div>
+      <div style="text-align:center;font-family:'Courier Prime',monospace;font-size:9.5px;letter-spacing:.14em;color:#A9A6A0;padding:26px 34px 0">( ALBUM · 14 CUTS )</div>
       <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:2px;padding:14px 2px 0">
         <sc-for list="{{ gallery }}" as="g" hint-placeholder-count="8">
-          <div onClick="{{ g.onOpen }}" style="aspect-ratio:1;cursor:pointer;background-color:#EFECE6;background-image:repeating-linear-gradient(44deg,#E9E7E2 0 6px,#F3F1EC 6px 12px)">
-            <img src="{{ g.src }}" alt="" style="display:block;width:100%;height:100%;object-fit:cover">
-          </div>
+          <div onClick="{{ g.onOpen }}" style="aspect-ratio:1;cursor:pointer;background-color:#EFECE6;background-image: {{ g.bgUrl }};background-size:cover;background-position:center"></div>
         </sc-for>
       </div>
     </div>
@@ -190,9 +186,7 @@ input,textarea{-webkit-appearance:none;border-radius:0}
         <div style="font-family:'Courier Prime',monospace;font-size:10.5px;letter-spacing:.16em;color:rgba(252,251,249,.6)">{{ lbCounter }}</div>
         <div onClick="{{ closeLightbox }}" style="width:34px;height:34px;display:flex;align-items:center;justify-content:center;font-size:19px;font-weight:200;color:#FCFBF9;cursor:pointer">×</div>
       </div>
-      <div style="flex:1;min-height:0;display:flex;align-items:center;justify-content:center;padding:0 10px 8px">
-        <img src="{{ lbSrc }}" alt="" style="max-width:100%;max-height:100%;object-fit:contain">
-      </div>
+      <div style="flex:1;min-height:0;margin:0 10px 8px;background-image: {{ lbBgUrl }};background-size:contain;background-repeat:no-repeat;background-position:center"></div>
       <div style="display:flex;gap:2px;padding:0 10px calc(20px + env(safe-area-inset-bottom));flex:none">
         <div onClick="{{ lbPrev }}" style="flex:1;text-align:center;padding:15px 0;border:1px solid rgba(252,251,249,.22);font-family:'Courier Prime',monospace;font-size:10px;letter-spacing:.14em;color:#FCFBF9;cursor:pointer" style-hover="background:rgba(252,251,249,.1)">← PREV</div>
         <div onClick="{{ lbNext }}" style="flex:1;text-align:center;padding:15px 0;border:1px solid rgba(252,251,249,.22);font-family:'Courier Prime',monospace;font-size:10px;letter-spacing:.14em;color:#FCFBF9;cursor:pointer" style-hover="background:rgba(252,251,249,.1)">NEXT →</div>
@@ -309,12 +303,11 @@ const SHEET_URL = 'https://script.google.com/macros/s/AKfycbyJV9g1VuEbIWnSgCxKTK
 // ────────────────────────────────────────────────
 // 앨범 사진 — GitHub 저장소의 photos 폴더에 올린 파일 이름을 순서대로 적으세요.
 // 예: ['photos/01.jpg', 'photos/02.jpg', ...]  앞 3장이 대표컷으로 올라갑니다.
-const TOP = ['photos/01.jpg', 'photos/03.jpg', 'photos/07.jpg'];   // 대표 3컷
-const GRID = [                                                     // 아래 앨범 (04 = 표지 사진이라 제외)
-  'photos/05.jpg', 'photos/22.jpg', 'photos/02.jpg', 'photos/08.jpg',
-  'photos/09.jpg', 'photos/10.jpg', 'photos/11.jpg', 'photos/12.jpg',
-  'photos/13.jpg', 'photos/14.jpg', 'photos/15.jpg', 'photos/16.jpg',
-  'photos/17.jpg', 'photos/18.jpg', 'photos/19.jpg', 'photos/20.jpg',
+const TOP = ['photos/01.jpg', 'photos/03.jpg', 'photos/02.jpg'];   // 대표 3컷
+const GRID = [                                                     // 아래 앨범 (04 = 표지 사진)
+  'photos/05.jpg', 'photos/22.jpg', 'photos/07.jpg', 'photos/08.jpg',
+  'photos/09.jpg', 'photos/10.jpg', 'photos/12.jpg', 'photos/13.jpg',
+  'photos/14.jpg', 'photos/15.jpg', 'photos/16.jpg', 'photos/19.jpg',
   'photos/21.jpg', 'photos/06.jpg',
 ];
 const PHOTOS = TOP.concat(GRID);
@@ -474,19 +467,19 @@ class Component extends DCLogic {
       daysAway: this.days,
       albumTop: [0, 1, 2].map(i => ({
         label: '( 0' + (i + 1) + ' )',
-        src: PHOTOS[i] || BLANK,
+        bgUrl: 'url("' + (PHOTOS[i] || BLANK) + '")',
         onOpen: () => this.setState({ lightbox: i }),
       })),
-      gallery: (PHOTOS.length ? PHOTOS.slice(3) : Array.from({ length: 21 })).map((src, i) => ({
-        src: src || BLANK,
+      gallery: (PHOTOS.length ? PHOTOS.slice(3) : Array.from({ length: 14 })).map((src, i) => ({
+        bgUrl: 'url("' + (src || BLANK) + '")',
         onOpen: () => this.setState({ lightbox: i + 3 }),
       })),
       lightboxOpen: s.lightbox !== null,
-      lbSrc: s.lightbox === null ? BLANK : (PHOTOS[s.lightbox] || BLANK),
-      lbCounter: s.lightbox === null ? '' : String(s.lightbox + 1).padStart(2, '0') + ' / ' + String(PHOTOS.length || 22).padStart(2, '0'),
+      lbBgUrl: 'url("' + (s.lightbox === null ? BLANK : (PHOTOS[s.lightbox] || BLANK)) + '")',
+      lbCounter: s.lightbox === null ? '' : String(s.lightbox + 1).padStart(2, '0') + ' / ' + String(PHOTOS.length).padStart(2, '0'),
       closeLightbox: () => this.setState({ lightbox: null }),
-      lbPrev: () => this.setState(p => ({ lightbox: (p.lightbox - 1 + (PHOTOS.length || 22)) % (PHOTOS.length || 22) })),
-      lbNext: () => this.setState(p => ({ lightbox: (p.lightbox + 1) % (PHOTOS.length || 22) })),
+      lbPrev: () => this.setState(p => ({ lightbox: (p.lightbox - 1 + PHOTOS.length) % PHOTOS.length })),
+      lbNext: () => this.setState(p => ({ lightbox: (p.lightbox + 1) % PHOTOS.length })),
       naverUrl: 'https://map.naver.com/p/search/' + encodeURIComponent('비렌티 웨딩홀 천안'),
       tmapUrl: 'tmap://search?name=' + encodeURIComponent('비렌티 웨딩홀'),
       copyAddress: this.copyAddress,
