@@ -31,8 +31,11 @@ input,textarea{-webkit-appearance:none;border-radius:0}
   <div style="padding-bottom:104px">
 
     <!-- COVER -->
-    <div style="min-height:calc(100svh - 104px);max-height:calc(100svh - 104px);overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:40px;padding:56px 34px 24px;box-sizing:border-box">
-      <img src="assets/lace-cover.jpg" alt="" style="display:block;flex:0 1 auto;min-height:0;width:auto;height:auto;max-width:214px;max-height:100%;object-fit:contain">
+    
+
+    <!-- GREETING -->
+    <div style="min-height:calc(100svh - 104px);max-height:calc(100svh - 104px);overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:64px;padding:48px 34px 24px;box-sizing:border-box">
+      <img src="./wedding_main_clean_rounded_lace_exact_or-mtplt6qn-t4dl.png" alt="" style="display: block; flex: 0 1 auto; min-height: 0; width: 392px; height: 521px; max-width: 100%; max-height: 100%; object-fit: contain; mix-blend-mode: multiply">
       <div style="text-align:center;font-family:'Courier Prime',ui-monospace,monospace;font-size:13.5px;line-height:1.85;letter-spacing:.11em;color:#1A1A18">
         <div style="font-size: 16px">THE WEDDING OF</div>
         <div style="font-size: 16px">EUN SU &amp; HA EUN</div>
@@ -40,11 +43,8 @@ input,textarea{-webkit-appearance:none;border-radius:0}
         <div>OCTOBER 31, 2026</div>
         <div>AM 11:00</div>
       </div>
-    </div>
-
-    <!-- GREETING -->
-    <div style="padding:0 40px;text-align:center">
-      <div style="font-family:'Courier Prime',monospace;font-size:10px;letter-spacing:.22em;color:#A9A6A0">( INVITATION )</div>
+    </div><div style="padding:0 40px;text-align:center">
+      <div style="font-family:'Courier Prime',monospace;font-size:10px;letter-spacing:.22em;color:#A9A6A0"><br><br><br><br><br><br><br>( INVITATION )</div>
       <div style="font-size:14.5px;font-weight:200;line-height:2.5;letter-spacing:.03em;color:#33332F;margin-top:32px;text-wrap:pretty">늘 곁에서 아껴주셨던<br>소중한 분들을 모십니다.<br><br>서로가 마주 보며 다져온 사랑으로<br>이제는 함께 한 곳을 바라보며,<br>서로의 영원한 집이 되어주려 합니다.<br><br>약속의 자리에 귀한 걸음으로<br>함께해 주시면<br>더없는 기쁨으로 간직하겠습니다.</div>
       <div style="display:flex;flex-direction:column;gap:15px;margin:74px 0 10px;font-size:12.5px;font-weight:300;letter-spacing:.04em;color:#5A5A55">
         <div style="font-size: 14px">신동연 <span style="color:#A9A6A0">의 아들</span> 한은수</div>
@@ -75,7 +75,7 @@ input,textarea{-webkit-appearance:none;border-radius:0}
           </div>
         </sc-for>
       </div>
-      <div style="text-align:center;font-family:'Courier Prime',monospace;font-size:9.5px;letter-spacing:.14em;color:#A9A6A0;padding:26px 34px 0">( ALBUM · 14 CUTS )</div>
+      <div style="text-align:center;font-family:'Courier Prime',monospace;font-size:9.5px;letter-spacing:.14em;color:#A9A6A0;padding:26px 34px 0">( ALBUM · 13 CUTS )</div>
       <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:2px;padding:14px 2px 0">
         <sc-for list="{{ gallery }}" as="g" hint-placeholder-count="8">
           <div onClick="{{ g.onOpen }}" style="aspect-ratio:1;cursor:pointer;background-color:#EFECE6;background-image: {{ g.bgUrl }};background-size:cover;background-position:center"></div>
@@ -85,11 +85,11 @@ input,textarea{-webkit-appearance:none;border-radius:0}
 
     <!-- LOCATION -->
     <div style="padding:88px 34px 0">
-      <div style="text-align:center;font-family:'Courier Prime',monospace;font-size:10px;letter-spacing:.22em;color:#A9A6A0">( LOCATION )</div>
+      <div style="text-align:center;font-family:'Courier Prime',monospace;font-size:10px;letter-spacing:.22em;color:#A9A6A0"><br><br><br><br>( LOCATION )</div>
       <div style="text-align:center;font-size:16px;font-weight:300;letter-spacing:.06em;margin-top:24px;line-height:1.7">비렌티 웨딩홀<br>3F 베르테홀</div>
       <div style="text-align:center;font-size:12px;font-weight:300;letter-spacing:.03em;color:#6E6E68;margin-top:10px">충남 천안시 서북구 천안대로 1198-30</div>
       <div style="height:200px;margin-top:26px;background:#EFECE6;overflow:hidden">
-        <iframe src="https://www.google.com/maps?q=%EC%B6%A9%EB%82%A8%20%EC%B2%9C%EC%95%88%EC%8B%9C%20%EC%84%9C%EB%B6%81%EA%B5%AC%20%EC%B2%9C%EC%95%88%EB%8C%80%EB%A1%9C%201198-30&hl=ko&z=16&output=embed" title="비렌티 웨딩홀 위치" loading="lazy" style="display:block;width:100%;height:100%;border:0;filter:grayscale(1) contrast(1.02)"></iframe>
+        <iframe src="https://www.google.com/maps?q=%EC%B6%A9%EB%82%A8%20%EC%B2%9C%EC%95%88%EC%8B%9C%20%EC%84%9C%EB%B6%81%EA%B5%AC%20%EC%B2%9C%EC%95%88%EB%8C%80%EB%A1%9C%201198-30&amp;hl=ko&amp;z=16&amp;output=embed" title="비렌티 웨딩홀 위치" loading="lazy" style="display:block;width:100%;height:100%;border:0;filter:grayscale(1) contrast(1.02)"></iframe>
       </div>
       <div style="display:flex;gap:2px;margin-top:2px">
         <a href="{{ naverUrl }}" target="_blank" rel="noopener" style="flex:1;text-align:center;padding:14px 0;border:1px solid #E4E1DA;font-size:11.5px;font-weight:300;letter-spacing:.04em;color:#3A3A36;text-decoration:none" style-hover="background:#1A1A18;color:#FCFBF9;border-color:#1A1A18">네이버지도</a>
@@ -292,7 +292,7 @@ input,textarea{-webkit-appearance:none;border-radius:0}
 
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props="{}">
+<script type="text/x-dc" data-dc-script data-props="{&quot;photoOrder&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;앨범 사진 순서&quot;}}">
 // ────────────────────────────────────────────────
 // 구글 스프레드시트 연동 주소를 아래 따옴표 안에 붙여넣으세요.
 // (Apps Script 웹앱 URL — https://script.google.com/macros/s/... /exec)
@@ -303,12 +303,12 @@ const SHEET_URL = 'https://script.google.com/macros/s/AKfycbyJV9g1VuEbIWnSgCxKTK
 // ────────────────────────────────────────────────
 // 앨범 사진 — GitHub 저장소의 photos 폴더에 올린 파일 이름을 순서대로 적으세요.
 // 예: ['photos/01.jpg', 'photos/02.jpg', ...]  앞 3장이 대표컷으로 올라갑니다.
-const TOP = ['photos/01.jpg', 'photos/03.jpg', 'photos/02.jpg'];   // 대표 3컷
-const GRID = [                                                     // 아래 앨범 (04 = 표지 사진)
-  'photos/05.jpg', 'photos/22.jpg', 'photos/07.jpg', 'photos/08.jpg',
-  'photos/09.jpg', 'photos/10.jpg', 'photos/12.jpg', 'photos/13.jpg',
-  'photos/14.jpg', 'photos/15.jpg', 'photos/16.jpg', 'photos/19.jpg',
-  'photos/21.jpg', 'photos/06.jpg',
+const TOP = ['photos/01.jpg', 'photos/05.jpg', 'photos/top-03.jpg'];   // 대표 3컷
+const GRID = [                                                     // 아래 앨범
+  'photos/06.jpg', 'photos/03.jpg', 'photos/07.jpg', 'photos/02.jpg',
+  'photos/14.jpg', 'photos/13.jpg', 'photos/15.jpg', 'photos/16.jpg',
+  'photos/09.jpg', 'photos/12.jpg', 'photos/22.jpg', 'photos/21.jpg',
+  'photos/24.jpg',
 ];
 const PHOTOS = TOP.concat(GRID);
 const BLANK = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
@@ -436,9 +436,32 @@ class Component extends DCLogic {
     setTimeout(() => this.setState(s => (s.copied === i ? { copied: null } : null)), 1600);
   };
 
+  scallop(w = 250, h = 341, inset = 18, amp = 6, arc = 28) {
+    const nx = Math.max(3, Math.round((w - 2 * inset) / arc));
+    const ny = Math.max(3, Math.round((h - 2 * inset) / arc));
+    const x0 = inset, y0 = inset, x1 = w - inset, y1 = h - inset;
+    const sx = (x1 - x0) / nx, sy = (y1 - y0) / ny;
+    let d = 'M' + x0 + ',' + y0;
+    for (let i = 0; i < nx; i++) d += ' a' + (sx / 2) + ',' + amp + ' 0 0 1 ' + sx + ',0';
+    for (let i = 0; i < ny; i++) d += ' a' + amp + ',' + (sy / 2) + ' 0 0 1 0,' + sy;
+    for (let i = 0; i < nx; i++) d += ' a' + (sx / 2) + ',' + amp + ' 0 0 1 ' + (-sx) + ',0';
+    for (let i = 0; i < ny; i++) d += ' a' + amp + ',' + (sy / 2) + ' 0 0 1 0,' + (-sy);
+    return d + ' Z';
+  }
+
+  get list() {
+    const raw = (this.props.photoOrder || '').trim();
+    if (!raw) return PHOTOS;
+    const arr = raw.split(/[\s,]+/).filter(Boolean)
+      .map(n => (n.indexOf('/') < 0 ? 'photos/' + n : n));
+    return arr.length ? arr : PHOTOS;
+  }
+
   renderVals() {
     const s = this.state, st = s.step;
+    const P = this.list;
     const accounts = [
+      { side: '신랑측', bank: '농협', number: '464-12-059924', holder: '신동연' },
       { side: '신랑측', bank: '카카오뱅크', number: '3333-03-1270665', holder: '한은수' },
       { side: '신부측', bank: '국민', number: '835002-04-317043', holder: '김하은' },
     ].map((a, i) => ({
@@ -458,6 +481,7 @@ class Component extends DCLogic {
     const ok = this.nextOk();
 
     return {
+      scallopD: this.scallop(),
       calendar: this.calendar(),
       calendar2: this.calendar().map(c => ({
         label: c.label,
@@ -467,19 +491,19 @@ class Component extends DCLogic {
       daysAway: this.days,
       albumTop: [0, 1, 2].map(i => ({
         label: '( 0' + (i + 1) + ' )',
-        bgUrl: 'url("' + (PHOTOS[i] || BLANK) + '")',
+        bgUrl: 'url("' + (P[i] || BLANK) + '")',
         onOpen: () => this.setState({ lightbox: i }),
       })),
-      gallery: (PHOTOS.length ? PHOTOS.slice(3) : Array.from({ length: 14 })).map((src, i) => ({
+      gallery: (P.length ? P.slice(3) : Array.from({ length: 14 })).map((src, i) => ({
         bgUrl: 'url("' + (src || BLANK) + '")',
         onOpen: () => this.setState({ lightbox: i + 3 }),
       })),
       lightboxOpen: s.lightbox !== null,
-      lbBgUrl: 'url("' + (s.lightbox === null ? BLANK : (PHOTOS[s.lightbox] || BLANK)) + '")',
-      lbCounter: s.lightbox === null ? '' : String(s.lightbox + 1).padStart(2, '0') + ' / ' + String(PHOTOS.length).padStart(2, '0'),
+      lbBgUrl: 'url("' + (s.lightbox === null ? BLANK : (P[s.lightbox] || BLANK)) + '")',
+      lbCounter: s.lightbox === null ? '' : String(s.lightbox + 1).padStart(2, '0') + ' / ' + String(P.length).padStart(2, '0'),
       closeLightbox: () => this.setState({ lightbox: null }),
-      lbPrev: () => this.setState(p => ({ lightbox: (p.lightbox - 1 + PHOTOS.length) % PHOTOS.length })),
-      lbNext: () => this.setState(p => ({ lightbox: (p.lightbox + 1) % PHOTOS.length })),
+      lbPrev: () => this.setState(p => ({ lightbox: (p.lightbox - 1 + P.length) % P.length })),
+      lbNext: () => this.setState(p => ({ lightbox: (p.lightbox + 1) % P.length })),
       naverUrl: 'https://map.naver.com/p/search/' + encodeURIComponent('비렌티 웨딩홀 천안'),
       tmapUrl: 'tmap://search?name=' + encodeURIComponent('비렌티 웨딩홀'),
       copyAddress: this.copyAddress,
