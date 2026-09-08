@@ -3,7 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>한은수 &amp; 김하은 결혼합니다 · 2026.10.31</title>
+<meta property="og:type" content="website">
+<meta property="og:title" content="은수 & 하은 결혼합니다. 2026.10.31">
+<meta property="og:description" content="2026년 10월 31일 토요일 · 소중한 분들을 초대합니다">
+<meta property="og:image" content="https://fruit0427.github.io/wed-invitation261031/photos/01.jpg">
+<meta property="og:url" content="https://fruit0427.github.io/wed-invitation261031/">
+<meta name="twitter:card" content="summary_large_image">
+<title>은수 &amp; 하은 결혼합니다. 2026.10.31</title>
 <template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="#FCFBF9"/><rect x="30" y="28" width="40" height="44" fill="#EAE7E0"/><text x="50" y="55" text-anchor="middle" font-family="Courier,monospace" font-size="13" fill="#1A1A18">E&amp;H</text></svg></template>
 <script src="./support.js"></script>
 </head>
@@ -34,7 +40,7 @@ input,textarea{-webkit-appearance:none;border-radius:0}
     
 
     <!-- GREETING -->
-    <div style="min-height:calc(100svh - 104px);max-height:calc(100svh - 104px);overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:64px;padding:48px 34px 24px;box-sizing:border-box">
+    <div style="min-height:calc(100svh - 104px);max-height:calc(100svh - 104px);overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:48px;padding:30px 18px 16px;box-sizing:border-box">
       <img src="./wedding_main_clean_rounded_lace_exact_or-mtplt6qn-t4dl.png" alt="" style="display: block; flex: 0 1 auto; min-height: 0; width: 392px; height: 521px; max-width: 100%; max-height: 100%; object-fit: contain; mix-blend-mode: multiply">
       <div style="text-align:center;font-family:'Courier Prime',ui-monospace,monospace;font-size:13.5px;line-height:1.85;letter-spacing:.11em;color:#1A1A18">
         <div style="font-size: 16px">THE WEDDING OF</div>
@@ -75,7 +81,7 @@ input,textarea{-webkit-appearance:none;border-radius:0}
           </div>
         </sc-for>
       </div>
-      <div style="text-align:center;font-family:'Courier Prime',monospace;font-size:9.5px;letter-spacing:.14em;color:#A9A6A0;padding:26px 34px 0">( ALBUM · 13 CUTS )</div>
+      <div style="text-align:center;font-family:'Courier Prime',monospace;font-size:9.5px;letter-spacing:.14em;color:#A9A6A0;padding:26px 34px 0">( ALBUM · {{ gridCount }} CUTS )</div>
       <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:2px;padding:14px 2px 0">
         <sc-for list="{{ gallery }}" as="g" hint-placeholder-count="8">
           <div onClick="{{ g.onOpen }}" style="aspect-ratio:1;cursor:pointer;background-color:#EFECE6;background-image: {{ g.bgUrl }};background-size:cover;background-position:center"></div>
@@ -303,12 +309,14 @@ const SHEET_URL = 'https://script.google.com/macros/s/AKfycbyJV9g1VuEbIWnSgCxKTK
 // ────────────────────────────────────────────────
 // 앨범 사진 — GitHub 저장소의 photos 폴더에 올린 파일 이름을 순서대로 적으세요.
 // 예: ['photos/01.jpg', 'photos/02.jpg', ...]  앞 3장이 대표컷으로 올라갑니다.
-const TOP = ['photos/01.jpg', 'photos/05.jpg', 'photos/top-03.jpg'];   // 대표 3컷
+const TOP = ['photos/01.jpg', 'photos/37.jpg', 'photos/top-03b.jpg'];   // 대표 3컷
 const GRID = [                                                     // 아래 앨범
-  'photos/06.jpg', 'photos/03.jpg', 'photos/07.jpg', 'photos/02.jpg',
-  'photos/14.jpg', 'photos/13.jpg', 'photos/15.jpg', 'photos/16.jpg',
-  'photos/09.jpg', 'photos/12.jpg', 'photos/22.jpg', 'photos/21.jpg',
-  'photos/24.jpg',
+  'photos/31.jpg', 'photos/36.jpg', 'photos/35.jpg', 'photos/32.jpg',
+  'photos/06.jpg', 'photos/33.jpg', 'photos/34.jpg', 'photos/38.jpg',
+  'photos/41.jpg', 'photos/40.jpg', 'photos/39.jpg', 'photos/22.jpg',
+  'photos/21.jpg', 'photos/03.jpg', 'photos/02.jpg', 'photos/13.jpg',
+  'photos/14.jpg', 'photos/15.jpg', 'photos/16b.jpg', 'photos/12.jpg',
+  'photos/09.jpg', 'photos/07.jpg',
 ];
 const PHOTOS = TOP.concat(GRID);
 const BLANK = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
@@ -463,6 +471,7 @@ class Component extends DCLogic {
     const accounts = [
       { side: '신랑측', bank: '농협', number: '464-12-059924', holder: '신동연' },
       { side: '신랑측', bank: '카카오뱅크', number: '3333-03-1270665', holder: '한은수' },
+      { side: '신부측', bank: '우체국', number: '311779-02-165967', holder: '김명숙' },
       { side: '신부측', bank: '국민', number: '835002-04-317043', holder: '김하은' },
     ].map((a, i) => ({
       ...a,
@@ -494,6 +503,7 @@ class Component extends DCLogic {
         bgUrl: 'url("' + (P[i] || BLANK) + '")',
         onOpen: () => this.setState({ lightbox: i }),
       })),
+      gridCount: Math.max(0, (P.length ? P.length : 17) - 3),
       gallery: (P.length ? P.slice(3) : Array.from({ length: 14 })).map((src, i) => ({
         bgUrl: 'url("' + (src || BLANK) + '")',
         onOpen: () => this.setState({ lightbox: i + 3 }),
